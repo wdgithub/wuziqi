@@ -1,0 +1,277 @@
+%juzhong{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+*{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+body{
+  @extend %juzhong;
+  // background: url(img/bg.jpg) no-repeat ;
+  background-size:cover;
+  overflow:hidden;
+}
+$width:500px;
+.kaishi1,.kaishi2{
+  position:absolute;
+  width:100%;
+  height:50%;
+  background: url(img/bg.jpg) no-repeat ;
+  background-size:100%;
+  z-index: 50;
+  top:0;
+  left:0;
+}
+.kaishi2{
+  top:50%;
+  background-position:0%  50%;
+}
+.kaishi3,.kaishi4{
+  position:absolute;
+  width:50%;
+  height:100%;
+  background:#85765E;
+  background-size:cover;
+   // z-index: 50;
+  top:0;
+  left:-50%;
+}
+.kaishi4{
+ 
+  left:100%;
+}
+
+.kaishi3 span{
+  width:70px;height:70px;
+  float: right;
+  background:red;
+  margin:0 5px;
+  opacity:0;
+}
+.kaishi3 span:nth-of-type(1){
+  background: url(img/tu3.png);
+  background-size:70px 70px;
+}
+.kaishi3 span:nth-of-type(2){
+  background: url(img/tu2.png);
+  background-size:70px 70px;
+}
+.kaishi3 span:nth-of-type(3){
+  background: url(img/tu1.png);
+  background-size:70px 70px;
+}
+.kaishi4 span{
+  width:70px;height:70px;
+  float: left;
+  background:red;
+  margin:0 5px;
+  opacity: 0;
+}
+.kaishi4 span:nth-of-type(1){
+  background: url(img/tu4.png);
+  background-size:70px 70px;
+}
+.kaishi4 span:nth-of-type(2){
+  background: url(img/tu5.png);
+  background-size:70px 70px;
+}
+.xiangxia{
+  @extend %juzhong;
+  top:-300%;
+  width:400px;height:600px;
+  background:url(img/shouye.png);
+  z-index:40;
+  background-size:400px 600px;
+  ul{
+    width:200px;height:300px;
+    @extend %juzhong;
+    margin-top:60%;
+    // background: red;
+    li{
+      width:200px;height:65px;
+      float:left;
+      background: green;
+      
+    }
+  }
+}
+.xiangxia ul li:nth-of-type(1){
+  background:url(img/moshi_03.png);
+  background-size:200px 65px;
+}
+.xiangxia ul li:nth-of-type(2){
+  background:url(img/moshi_05.png);
+  background-size:200px 65px;
+}
+.xiangxia ul li:nth-of-type(3){
+  background:url(img/moshi_07.png);
+  background-size:200px 65px;
+}
+.xiangxia ul li:nth-of-type(4){
+  background:url(img/moshi_09.png);
+  background-size:200px 65px;
+}
+
+.qipan{
+  // display: none;
+  @extend %juzhong;
+  width:$width;
+  height:$width;
+  background:#D5A565;
+  border:1px solid #F9CC9D;
+  opacity: 0;
+  .qizi{
+    width:$width/15*(3/4);
+    height:$width/15*(3/4);
+    float:left;
+    //background:yellowgreen;
+    border-radius:50%;
+    position:relative;
+    z-index: 10;
+    margin:$width/15*(1/4/2);
+    
+  }
+  .heizi{
+    opacity: 1;
+    background:#000;
+ /*    background: url(img/qizi.jpg);
+    background-size: $width/15*(3/4)*2.5 $width/15*(3/4)*2.5;
+    background-position: -$width/15*(3/4)*2.5*0.1 -$width/15*(3/4)*2.5*0.1; */
+  }
+  .baizi{
+    opacity:1;
+    background:#fff;
+  }
+  .hengxian{
+    width:$width - $width/15;
+    height:1px;
+    border:black;
+    position:absolute;
+    left:$width/30;
+    display:block;
+    background: black;
+    transform:translate3d(-1000px,0,0);
+  }
+  .shuxian{
+    width:1px;
+    height:$width - $width/15;
+    border:black;
+    position:absolute;
+    top:$width/30;
+    display:block;
+    background: black;
+    transform:translate3d(0,-1000px,0);
+  }
+  .xing{
+    width:$width/75;
+    height:$width/75;
+    border-radius:50%;
+    background:black;
+    position:absolute;
+    left:0;top:0;
+    transform:translate3d(-45%,-45%,0);
+    opacity:0;
+  }
+
+}
+@for $i from 0 through 14{
+  .qipan .hengxian:nth-of-type(#{$i+1}){
+
+    top:($width/30)+$width/15*$i;
+  }
+  
+  .qipan .shuxian:nth-of-type(#{$i+1}){
+
+    left:($width/30)+$width/15*$i;
+  }
+}
+@for $i from 0 through 7{
+  .qipan .hengxian:nth-of-type(#{2*$i+1}){
+    transform:translate3d(1000px,0,0);
+  }
+  .qipan .shuxian:nth-of-type(#{2*$i+1}){
+    transform:translate3d(0,1000px,0);
+  }
+}
+.qipan .xing:nth-of-type(1){
+  top:3*($width/15)+$width/30;
+  left:3*($width/15)+$width/30;
+}
+.qipan .xing:nth-of-type(2){
+  top:3*($width/15)+$width/30;
+  left:11*($width/15)+$width/30;
+}
+.qipan .xing:nth-of-type(3){
+  top:7*($width/15)+$width/30;
+  left:7*($width/15)+$width/30;
+}
+.qipan .xing:nth-of-type(4){
+  top:11*($width/15)+$width/30;
+  left:3*($width/15)+$width/30;
+}
+.qipan .xing:nth-of-type(5){
+  top:11*($width/15)+$width/30;
+  left:11*($width/15)+$width/30;
+}
+.yidong{
+    
+    animation: guiwei 3s ease forwards;
+}
+@keyframes guiwei{
+  100%{
+    transform:translate3d(0,0,0);
+  }
+}
+
+.sheng{
+  @extend %juzhong;
+  top:-400%;
+  width:400px;height:400px;
+  background:url(img/sheng.png);
+  z-index:40;
+  background-size:400px 400px;
+  overflow: hidden;
+  .chongwan{
+    width:200px;height:65px;
+    margin:0 auto;
+    background:url(img/chongwan.png);
+    background-size:200px 65px;
+    margin-top:200px;
+  }
+  .fan{
+    width:200px;height:65px;
+    margin:0 auto;
+    background:url(img/fan.png);
+    background-size:200px 65px;
+    margin-top:30px;
+  }
+}
+.shibai{
+  @extend %juzhong;
+  top:-400%;
+  width:400px;height:400px;
+  background:url(img/shibai.png);
+  z-index:40;
+  background-size:400px 400px;
+  overflow: hidden;
+  .chongwan{
+    width:200px;height:65px;
+    margin:0 auto;
+    background:url(img/chongwan.png);
+    background-size:200px 65px;
+    margin-top:200px;
+  }
+  .fan{
+    width:200px;height:65px;
+    margin:0 auto;
+    background:url(img/fan.png);
+    background-size:200px 65px;
+    margin-top:30px;
+  }
+}
